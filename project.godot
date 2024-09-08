@@ -11,10 +11,23 @@ config_version=5
 [application]
 
 config/name="Brackeys Jam"
+run/main_scene="res://Scenes/player.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/scale=4.0
+
+[input]
+
+w={
+"deadzone": 0.5,
+"events": []
+}
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
