@@ -1,3 +1,69 @@
-[gd_scene format=3 uid="uid://bv00dois88qdj"]
+[gd_scene load_steps=8 format=3 uid="uid://bv00dois88qdj"]
+
+[ext_resource type="Texture2D" uid="uid://bbq7nipyj5bvq" path="res://Assets/sprites/tilesets/plains.png" id="1_n638l"]
+[ext_resource type="Texture2D" uid="uid://bgi8q2o5qu2om" path="res://Assets/sprites/tilesets/grass.png" id="2_0xkty"]
+[ext_resource type="Texture2D" uid="uid://da5ep3xjbf8sg" path="res://Assets/sprites/objects/objects.png" id="3_8ynxa"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rfmq8"]
+texture = ExtResource("1_n638l")
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+4:1/0 = 0
+3:6/0 = 0
+2:6/0 = 0
+1:6/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+2:4/0 = 0
+1:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+5:5/0 = 0
+4:5/0 = 0
+3:7/0 = 0
+2:7/0 = 0
+1:7/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ixg16"]
+texture = ExtResource("2_0xkty")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kqlxc"]
+texture = ExtResource("3_8ynxa")
+0:0/0 = 0
+0:1/0 = 0
+5:0/0 = 0
+0:5/size_in_atlas = Vector2i(3, 4)
+0:5/0 = 0
+6:7/size_in_atlas = Vector2i(2, 2)
+6:7/0 = 0
+8:6/size_in_atlas = Vector2i(2, 3)
+8:6/0 = 0
+10:7/size_in_atlas = Vector2i(2, 2)
+10:7/0 = 0
+11:2/size_in_atlas = Vector2i(1, 2)
+11:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wwg7c"]
+sources/0 = SubResource("TileSetAtlasSource_rfmq8")
+sources/1 = SubResource("TileSetAtlasSource_ixg16")
+sources/2 = SubResource("TileSetAtlasSource_kqlxc")
 
 [node name="Game" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_wwg7c")
+format = 2
+layer_0/tile_data = PackedInt32Array(65533, 131072, 1, 65534, 131072, 1, 65535, 131072, 1, 65532, 131072, 1, 65531, 131072, 1, 65530, 131072, 1, -7, 65536, 0, -6, 65536, 0)
