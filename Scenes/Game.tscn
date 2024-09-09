@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bv00dois88qdj"]
+[gd_scene load_steps=10 format=3 uid="uid://bv00dois88qdj"]
 
 [ext_resource type="Texture2D" uid="uid://bbq7nipyj5bvq" path="res://Assets/sprites/tilesets/plains.png" id="1_n638l"]
 [ext_resource type="Texture2D" uid="uid://bgi8q2o5qu2om" path="res://Assets/sprites/tilesets/grass.png" id="2_0xkty"]
 [ext_resource type="Texture2D" uid="uid://da5ep3xjbf8sg" path="res://Assets/sprites/objects/objects.png" id="3_8ynxa"]
 [ext_resource type="PackedScene" uid="uid://ircdf4urbsi6" path="res://Scenes/player.tscn" id="4_73hqg"]
+[ext_resource type="PackedScene" uid="uid://c1jmjqw1xd04u" path="res://Scenes/cropSpot.tscn" id="5_rn24v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rfmq8"]
 texture = ExtResource("1_n638l")
@@ -136,3 +137,15 @@ position = Vector2(224, 97)
 scale = Vector2(3.0247, 2.51869)
 offset = Vector2(-60, 0)
 zoom = Vector2(3.5, 3.5)
+
+[node name="CropSpot" parent="." instance=ExtResource("5_rn24v")]
+position = Vector2(93, 111)
+scale = Vector2(-0.319852, 0.253289)
+
+[node name="CropSpot2" parent="." instance=ExtResource("5_rn24v")]
+position = Vector2(112, 110)
+scale = Vector2(0.260418, 0.291665)
+
+[node name="CropSpot3" parent="." instance=ExtResource("5_rn24v")]
+position = Vector2(102, 163)
+scale = Vector2(0.322918, 0.333332)

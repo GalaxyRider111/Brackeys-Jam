@@ -1,0 +1,142 @@
+[gd_scene load_steps=20 format=3 uid="uid://c1jmjqw1xd04u"]
+
+[ext_resource type="PackedScene" uid="uid://ja5fkcv5ppsu" path="res://Interactions/interaction_are.tscn" id="1_lb7re"]
+[ext_resource type="Texture2D" uid="uid://db6w23mcgcbig" path="res://Assets/Cute_Fantasy_Free/Tiles/FarmLand_Tile.png" id="1_mi5s2"]
+[ext_resource type="Script" path="res://Scripts/crop_spot.gd" id="2_dd2wb"]
+[ext_resource type="Texture2D" uid="uid://bl8ej1qh5y5mu" path="res://Assets/Cute_Fantasy_Free/Outdoor decoration/Outdoor_Decor_Free.png" id="2_h1bh3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuyr6"]
+atlas = ExtResource("2_h1bh3")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ugq4"]
+atlas = ExtResource("2_h1bh3")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1oev"]
+atlas = ExtResource("2_h1bh3")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rtix"]
+atlas = ExtResource("2_h1bh3")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7biq0"]
+atlas = ExtResource("2_h1bh3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk4pf"]
+atlas = ExtResource("2_h1bh3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_javw2"]
+atlas = ExtResource("2_h1bh3")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njno5"]
+atlas = ExtResource("2_h1bh3")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rewnj"]
+atlas = ExtResource("2_h1bh3")
+region = Rect2(96, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_latwr"]
+atlas = ExtResource("2_h1bh3")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l266"]
+atlas = ExtResource("2_h1bh3")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm8uk"]
+atlas = ExtResource("2_h1bh3")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg1oq"]
+atlas = ExtResource("2_h1bh3")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ypdk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uuyr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ugq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1oev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rtix")
+}],
+"loop": true,
+"name": &"carrot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7biq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tk4pf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_javw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njno5")
+}],
+"loop": true,
+"name": &"cauliflower",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rewnj")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_latwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6l266")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm8uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg1oq")
+}],
+"loop": true,
+"name": &"wheat",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0vsx7"]
+
+[node name="CropSpot" type="Sprite2D"]
+position = Vector2(1, 4.76837e-07)
+scale = Vector2(1.35417, 1.33333)
+texture = ExtResource("1_mi5s2")
+script = ExtResource("2_dd2wb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 10
+scale = Vector2(1.50215, 1.45)
+sprite_frames = SubResource("SpriteFrames_3ypdk")
+animation = &"empty"
+
+[node name="InteractionAre" parent="." instance=ExtResource("1_lb7re")]
+scale = Vector2(1.20677, 1.3)
+script = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionAre"]
+scale = Vector2(5.74988, 4.48)
+shape = SubResource("CircleShape2D_0vsx7")
