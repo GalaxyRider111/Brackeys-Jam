@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://ircdf4urbsi6"]
+[gd_scene load_steps=56 format=3 uid="uid://ircdf4urbsi6"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_vvtua"]
 [ext_resource type="Texture2D" uid="uid://bsjfy5xixqpmo" path="res://Assets/sprites/characters/player.png" id="2_x4fwo"]
@@ -418,12 +418,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gu5mt"]
+
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
+position = Vector2(1, 0)
 script = ExtResource("1_vvtua")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(64, 18)
+position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_ymsl3")
 animation = &"back_attack"
+offset = Vector2(0, -20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = -5
+position = Vector2(2, -4)
+scale = Vector2(0.602533, 0.273226)
+shape = SubResource("CircleShape2D_gu5mt")
