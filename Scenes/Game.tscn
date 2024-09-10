@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bv00dois88qdj"]
+[gd_scene load_steps=11 format=3 uid="uid://bv00dois88qdj"]
 
 [ext_resource type="Texture2D" uid="uid://bbq7nipyj5bvq" path="res://Assets/sprites/tilesets/plains.png" id="1_n638l"]
 [ext_resource type="Texture2D" uid="uid://bgi8q2o5qu2om" path="res://Assets/sprites/tilesets/grass.png" id="2_0xkty"]
 [ext_resource type="Texture2D" uid="uid://da5ep3xjbf8sg" path="res://Assets/sprites/objects/objects.png" id="3_8ynxa"]
 [ext_resource type="PackedScene" uid="uid://ircdf4urbsi6" path="res://Scenes/player.tscn" id="4_73hqg"]
 [ext_resource type="PackedScene" uid="uid://c1jmjqw1xd04u" path="res://Scenes/cropSpot.tscn" id="5_rn24v"]
+[ext_resource type="PackedScene" uid="uid://c741uk41toalv" path="res://Scenes/ShowCoins.tscn" id="6_341po"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rfmq8"]
 texture = ExtResource("1_n638l")
@@ -116,6 +117,10 @@ sources/2 = SubResource("TileSetAtlasSource_kqlxc")
 y_sort_enabled = true
 position = Vector2(1, 0)
 
+[node name="CropSpot3" parent="." instance=ExtResource("5_rn24v")]
+position = Vector2(102, 163)
+scale = Vector2(0.322918, 0.333332)
+
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
 position = Vector2(223, 97)
@@ -129,23 +134,23 @@ layer_1/y_sort_enabled = true
 layer_1/tile_data = PackedInt32Array(-11, 2, 5, -262138, 2, 5, 196606, 655362, 7, 393209, 655362, 7, 327683, 655362, 7, -131078, 655362, 7, 65540, 524290, 6, 196598, 524290, 6, -196607, 524290, 6, -262153, 524290, 6, 0, 524290, 6, -327679, 393218, 7, -262149, 393218, 7, 393204, 393218, 7, -3, 2, 5, -262146, 2, 5)
 
 [node name="Player" parent="." instance=ExtResource("4_73hqg")]
-position = Vector2(126, 138)
+position = Vector2(-26, 153)
 scale = Vector2(1.0374, 1.03024)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(224, 97)
+position = Vector2(178, 101)
 scale = Vector2(3.0247, 2.51869)
 offset = Vector2(-60, 0)
 zoom = Vector2(3.5, 3.5)
 
 [node name="CropSpot" parent="." instance=ExtResource("5_rn24v")]
-position = Vector2(93, 111)
-scale = Vector2(-0.319852, 0.253289)
+position = Vector2(-18, 114)
+rotation = 3.14159
+scale = Vector2(0.319852, -0.371273)
 
 [node name="CropSpot2" parent="." instance=ExtResource("5_rn24v")]
-position = Vector2(112, 110)
+position = Vector2(210, 164)
 scale = Vector2(0.260418, 0.291665)
 
-[node name="CropSpot3" parent="." instance=ExtResource("5_rn24v")]
-position = Vector2(102, 163)
-scale = Vector2(0.322918, 0.333332)
+[node name="ShowCoins" parent="." instance=ExtResource("6_341po")]
+position = Vector2(-41, 11)

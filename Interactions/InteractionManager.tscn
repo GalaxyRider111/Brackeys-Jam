@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvb0iaqfn030s"]
 
-[ext_resource type="Script" path="res://Interactions/interaction_are.gd" id="1_f2b8g"]
+[ext_resource type="Script" path="res://Interactions/interaction_manager.gd" id="1_7oohy"]
 
 [sub_resource type="GDScript" id="GDScript_ci2sw"]
 script/source = "extends Label
@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 "
 
 [node name="InteractionManager" type="Node2D"]
-script = ExtResource("1_f2b8g")
+script = ExtResource("1_7oohy")
 
 [node name="Label" type="Label" parent="."]
 z_index = 20
@@ -28,7 +28,7 @@ offset_left = -63.5
 offset_right = 63.5
 offset_bottom = 23.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 10
 text = "[E] TO INTERACT"
 horizontal_alignment = 1
 vertical_alignment = 1

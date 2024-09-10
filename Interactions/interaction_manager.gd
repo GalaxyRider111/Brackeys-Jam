@@ -1,8 +1,8 @@
 extends Node2D
-class_name InstanceManager
 
 
-@onready var player =get_tree().get_first_node_in_group("player")
+
+@onready var player =get_tree().get_first_node_in_group("Player")
 @onready var label=$Label
 
 const base_text="[E] TO "
@@ -21,7 +21,7 @@ func unregister_area(area: InteractionArea):
 		
 		
 func _process(delta):
-	if active_area.size>0 && can_Interact:
+	if active_area.size() >0 && can_Interact:
 		active_area.sort_custom(_sort_to_distance_player)
 		label.text= base_text+ active_area[0].action_name
 		label.global_position=active_area[0].global_position
