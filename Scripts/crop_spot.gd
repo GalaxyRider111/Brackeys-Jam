@@ -1,8 +1,7 @@
 extends Node2D
 
 @onready var interaction_area: InteractionArea=$InteractionAre
-@onready var DeathPlantTimer :=$TimerD
-@onready var GrowPlantTimer := $TimerG
+
 
 var rng = RandomNumberGenerator.new()
 

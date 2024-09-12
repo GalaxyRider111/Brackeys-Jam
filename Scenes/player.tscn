@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://ircdf4urbsi6"]
+[gd_scene load_steps=57 format=3 uid="uid://ircdf4urbsi6"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_vvtua"]
 [ext_resource type="Texture2D" uid="uid://bsjfy5xixqpmo" path="res://Assets/sprites/characters/player.png" id="2_x4fwo"]
@@ -418,13 +418,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gu5mt"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7lck"]
+size = Vector2(19, 20)
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8p7xt"]
+radius = 5.73913
+height = 16.4134
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 position = Vector2(1, 0)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 23
+collision_mask = 147
 script = ExtResource("1_vvtua")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -433,8 +438,17 @@ sprite_frames = SubResource("SpriteFrames_ymsl3")
 animation = &"back_attack"
 offset = Vector2(0, -20)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = -5
-position = Vector2(2, -4)
-scale = Vector2(0.602533, 0.273226)
-shape = SubResource("CircleShape2D_gu5mt")
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="hitBoxShape" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(2.5, -10)
+scale = Vector2(0.913814, 0.896819)
+shape = SubResource("RectangleShape2D_p7lck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+position = Vector2(2, -6)
+scale = Vector2(1.02026, -0.852962)
+shape = SubResource("CapsuleShape2D_8p7xt")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]

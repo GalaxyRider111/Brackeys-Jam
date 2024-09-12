@@ -3,7 +3,10 @@ extends CharacterBody2D
 
 const speed = 100
 var current_dir="none"
-
+var health=100
+var attack=20
+var playerAlive=true
+var enemyAttackRange=false
 
 
 func _physics_process(delta: float) -> void:
@@ -75,3 +78,14 @@ func Movement_Animations(movement):
 			anim.play("back_idle")
 		elif movement==1:
 			anim.play("back_walk")
+	
+ 
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body.has_method("enemy"):
+		enemyAttackRange=true
+
+
+func _on_hitbox_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
