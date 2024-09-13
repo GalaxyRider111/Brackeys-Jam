@@ -5,6 +5,9 @@ var acc=1
 var player_chase=false
 var player=null
 
+var health=80
+var attack=10
+
 
 @onready var playerr= get_tree().get_first_node_in_group("player")
 
@@ -50,3 +53,14 @@ func _on_trigger_area_body_exited(body) -> void:
 	
 func enemy():
 	pass
+
+
+func _on_hurt_box_hurt(damage: Variant) -> void:
+	
+	if(playerr.get_hit()):
+			print("HIT")
+			health-=50
+	
+	#health-=damage
+	if health <=0:
+		queue_free()

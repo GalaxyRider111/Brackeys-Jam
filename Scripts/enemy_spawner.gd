@@ -25,7 +25,7 @@ func _on_timer_timeout() -> void:
 				i.enemy_spawn_counter+=1
 			else:
 				i.enemy_spawn_counter=0
-				var new_enemy= load(str(i.enemy.resource_path))
+				var new_enemy= i.enemy
 				var counter=0
 				while counter<i.enemy_num:
 					var enemy_spawn=new_enemy.instantiate()
