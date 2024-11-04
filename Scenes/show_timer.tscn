@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://e10sgn1c6bqh"]
+
+[ext_resource type="Script" path="res://Scripts/show_timer.gd" id="1_s50n0"]
+
+[node name="ShowTimer" type="Node2D"]
+script = ExtResource("1_s50n0")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 15
+text = "Time survived:"

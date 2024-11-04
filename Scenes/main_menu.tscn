@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://umpkkw88phgx"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_i5br4"]
+[ext_resource type="Texture2D" uid="uid://buevid8yarowo" path="res://Assets/Playyer/IMG-20240914-WA0016.jpg" id="2_100dv"]
+[ext_resource type="FontFile" uid="uid://cmwhblhvoakui" path="res://Assets/Fonts/Coffee Soda.otf" id="3_23b55"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oqovq"]
+texture = ExtResource("2_100dv")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ah3q5"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmulw"]
+bg_color = Color(1, 1, 1, 0.392157)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i5br4")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oqovq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0642361
+anchor_top = 0.62037
+anchor_right = 0.206807
+anchor_bottom = 0.88587
+offset_top = 21.0001
+offset_right = -59.2421
+offset_bottom = -9.04358
+grow_vertical = 0
+scale = Vector2(1.56421, 1.05548)
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 25
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_23b55")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_ah3q5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmulw")
+text = "Play"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_23b55")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_ah3q5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmulw")
+text = "Quit
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.314236
+anchor_top = 0.0802469
+anchor_right = 0.695313
+anchor_bottom = 0.228395
+theme_override_fonts/font = ExtResource("3_23b55")
+theme_override_font_sizes/font_size = 70
+text = "Fertilizer X"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.40191
+anchor_top = 0.935185
+anchor_right = 0.983507
+anchor_bottom = 0.978395
+offset_right = -3.0
+theme_override_fonts/font = ExtResource("3_23b55")
+theme_override_font_sizes/font_size = 20
+text = "*For the best experience, we recommend playing on fullscreen"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_play_pressed"]

@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var interaction_area: InteractionArea=$InteractionAre
+@onready var healthBar =$HealthBar
+@onready var player=get_tree().get_first_node_in_group("player")
 
 
 var rng = RandomNumberGenerator.new()
@@ -18,6 +20,9 @@ var sprite
 
 
 func _on_interact():
+	
+	player.waterPlants()
+	
 	if spriteState=="empty":
 		var my_random_number = rng.randi_range(1, 4)
 		if my_random_number==1:
@@ -53,10 +58,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+		player=get_tree().get_first_node_in_group("player")
 	
 		seconds=delta;
 		
 		currentTimer-=seconds
+		updateHealthBar()
 		
 		if currentTimer<=0.0:
 			spriteState="empty"
@@ -68,3 +75,11 @@ func _process(delta: float) -> void:
 			sprite.play(spriteState)
 		else:
 			sprite.play(spriteState+str(plantLevel))
+
+func updateHealthBar():
+	if(spriteState=="empty"):
+		healthBar.visible=false
+	else:
+		healthBar.visible=true
+	healthBar.value= currentTimer
+	

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://gsqvufmuh5xh"]
+
+[ext_resource type="PackedScene" uid="uid://ja5fkcv5ppsu" path="res://Interactions/interaction_are.tscn" id="1_377n6"]
+
+[sub_resource type="GDScript" id="GDScript_x2tcp"]
+script/source = "extends Node2D
+
+@onready var interaction_area: InteractionArea=$InteractionAre
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	
+	interaction_area.interact= Callable(self, \"_on_interact\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+
+func _on_interact():
+	CoinManager.addCoins(10000)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ad0cr"]
+size = Vector2(94, 83.75)
+
+[node name="FertilizatorShackle" type="Node2D"]
+script = SubResource("GDScript_x2tcp")
+
+[node name="InteractionAre" parent="." instance=ExtResource("1_377n6")]
+collision_layer = 3
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionAre"]
+position = Vector2(2, 1.5)
+shape = SubResource("RectangleShape2D_ad0cr")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://c1jmjqw1xd04u"]
+[gd_scene load_steps=22 format=3 uid="uid://c1jmjqw1xd04u"]
 
 [ext_resource type="PackedScene" uid="uid://ja5fkcv5ppsu" path="res://Interactions/interaction_are.tscn" id="1_lb7re"]
 [ext_resource type="Texture2D" uid="uid://db6w23mcgcbig" path="res://Assets/Cute_Fantasy_Free/Tiles/FarmLand_Tile.png" id="1_mi5s2"]
 [ext_resource type="Script" path="res://Scripts/crop_spot.gd" id="2_dd2wb"]
 [ext_resource type="Texture2D" uid="uid://bl8ej1qh5y5mu" path="res://Assets/Cute_Fantasy_Free/Outdoor decoration/Outdoor_Decor_Free.png" id="2_h1bh3"]
+[ext_resource type="Texture2D" uid="uid://dj3kpcxo5f58m" path="res://Assets/Cute_Fantasy_Free/Player/healthbar.png" id="5_hnyum"]
+[ext_resource type="Texture2D" uid="uid://b11ttvde1ejjf" path="res://Assets/Cute_Fantasy_Free/Player/healthPlants.png" id="6_ofcsb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uuyr6"]
 atlas = ExtResource("2_h1bh3")
@@ -189,3 +191,15 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionAre"]
 scale = Vector2(5.74988, 4.48)
 shape = SubResource("CircleShape2D_0vsx7")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+z_index = 12
+offset_left = -19.9384
+offset_top = -45.0001
+offset_right = 20.0616
+offset_bottom = -5.00011
+scale = Vector2(1.22955, 1.52966)
+max_value = 10.0
+value = 10.0
+texture_over = ExtResource("5_hnyum")
+texture_progress = ExtResource("6_ofcsb")

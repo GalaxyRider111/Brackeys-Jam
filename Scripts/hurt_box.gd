@@ -2,6 +2,7 @@ extends Area2D
 
 @export_enum("Cooldown", "HitOnce","DisableHitBox") var HurtBoxType=0
 
+
 @onready var collision=$CollisionShape2D
 
 @onready var disableTimer=$DisableTimer
@@ -14,7 +15,8 @@ signal hurt(damage)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	collision=$CollisionShape2D
+	disableTimer=$DisableTimer
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,8 +25,11 @@ func _process(delta: float) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
+	print("hope")
 	if area.is_in_group("attack"):
+		print("HOPE")
 		if not area.get("damage")==null:
+			print("Cmonsssss")
 			
 			match HurtBoxType:
 				0: #Cooldown

@@ -5,7 +5,7 @@ extends Node2D
 @onready var player =get_tree().get_first_node_in_group("player")
 @onready var label=$Label
 
-const base_text="[E] TO "
+const base_text=""
 
 var active_area =[]
 var can_Interact= true
@@ -21,6 +21,7 @@ func unregister_area(area: InteractionArea):
 		
 		
 func _process(delta):
+	player =get_tree().get_first_node_in_group("player")
 	if active_area.size() >0 && can_Interact:
 		active_area.sort_custom(_sort_to_distance_player)
 		label.text= base_text+ active_area[0].action_name

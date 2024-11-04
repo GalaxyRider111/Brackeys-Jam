@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkor8cvtdj7yb"]
+
+[ext_resource type="Script" path="res://victory.gd" id="1_c64nu"]
+[ext_resource type="Texture2D" uid="uid://bgi8q2o5qu2om" path="res://Assets/sprites/tilesets/grass.png" id="2_flhnk"]
+[ext_resource type="FontFile" uid="uid://cmwhblhvoakui" path="res://Assets/Fonts/Coffee Soda.otf" id="3_n6uml"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r2g2l"]
+texture = ExtResource("2_flhnk")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3ojh"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44g7q"]
+bg_color = Color(1, 1, 1, 0.392157)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c64nu")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_r2g2l")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.322917
+anchor_top = 0.0740741
+anchor_right = 0.694444
+anchor_bottom = 0.182099
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.965884, 0.630334, 0.0390048, 1)
+theme_override_fonts/font = ExtResource("3_n6uml")
+theme_override_font_sizes/font_size = 51
+text = "YOU SURVIVED :D"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.221354
+anchor_top = 0.277778
+anchor_right = 0.860243
+anchor_bottom = 0.33179
+offset_top = -1.52588e-05
+scale = Vector2(0.904851, 0.904851)
+theme_override_fonts/font = ExtResource("3_n6uml")
+theme_override_font_sizes/font_size = 25
+text = "Congratulations, you survived the veggie apocalypse"
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -349.0
+offset_top = -60.0
+offset_right = 24.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.93137, 1.7551)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 25
+
+[node name="Replay" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_n6uml")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_j3ojh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_44g7q")
+text = "KEEP PLAYING?"
+
+[node name="MainMenu" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_n6uml")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_j3ojh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_44g7q")
+text = "Main Menu"

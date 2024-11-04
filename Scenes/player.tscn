@@ -1,9 +1,12 @@
-[gd_scene load_steps=61 format=3 uid="uid://ircdf4urbsi6"]
+[gd_scene load_steps=71 format=3 uid="uid://ircdf4urbsi6"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_vvtua"]
 [ext_resource type="Texture2D" uid="uid://cyo6wr4u6fnc" path="res://Assets/Playyer/Player_Sprites.png" id="2_suk3b"]
 [ext_resource type="PackedScene" uid="uid://decjiwmwxj5tk" path="res://Scenes/hurt_box.tscn" id="3_5yeq3"]
+[ext_resource type="Texture2D" uid="uid://bq45nunsld7cm" path="res://Assets/Playyer/Player_Actionsss.png" id="3_kgj8d"]
 [ext_resource type="PackedScene" uid="uid://bglndjv82lfdp" path="res://Scenes/hit_box.tscn" id="4_qxdpw"]
+[ext_resource type="Texture2D" uid="uid://dj3kpcxo5f58m" path="res://Assets/Cute_Fantasy_Free/Player/healthbar.png" id="5_grbch"]
+[ext_resource type="Texture2D" uid="uid://bnl0ja73y0hwk" path="res://Assets/Cute_Fantasy_Free/Player/healthPlayer.png" id="6_hovlu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sa67n"]
 atlas = ExtResource("2_suk3b")
@@ -20,6 +23,14 @@ region = Rect2(64, 256, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xsd3"]
 atlas = ExtResource("2_suk3b")
 region = Rect2(96, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mevd6"]
+atlas = ExtResource("3_kgj8d")
+region = Rect2(0, 480, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odesd"]
+atlas = ExtResource("3_kgj8d")
+region = Rect2(48, 480, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_moslv"]
 atlas = ExtResource("2_suk3b")
@@ -101,6 +112,14 @@ region = Rect2(64, 192, 32, 32)
 atlas = ExtResource("2_suk3b")
 region = Rect2(96, 192, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_sopvh"]
+atlas = ExtResource("3_kgj8d")
+region = Rect2(0, 432, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne7dx"]
+atlas = ExtResource("3_kgj8d")
+region = Rect2(48, 432, 48, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_pcnhf"]
 atlas = ExtResource("2_suk3b")
 region = Rect2(0, 0, 32, 32)
@@ -164,6 +183,14 @@ region = Rect2(64, 224, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tqyrl"]
 atlas = ExtResource("2_suk3b")
 region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bc8a"]
+atlas = ExtResource("3_kgj8d")
+region = Rect2(0, 528, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjkuj"]
+atlas = ExtResource("3_kgj8d")
+region = Rect2(48, 528, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vo27p"]
 atlas = ExtResource("2_suk3b")
@@ -231,6 +258,17 @@ animations = [{
 "loop": true,
 "name": &"back_attack",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mevd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odesd")
+}],
+"loop": true,
+"name": &"back_gardening",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -314,6 +352,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_sopvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne7dx")
+}],
+"loop": true,
+"name": &"front_gardening",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pcnhf")
 }, {
 "duration": 1.0,
@@ -377,6 +426,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4bc8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjkuj")
+}],
+"loop": true,
+"name": &"side_gardening",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vo27p")
 }, {
 "duration": 1.0,
@@ -427,22 +487,25 @@ radius = 5.73913
 height = 16.4134
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18l0h"]
-size = Vector2(16, 20)
+size = Vector2(2.98644, 6.99088)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gei4b"]
-size = Vector2(16, 20)
+size = Vector2(4.17958, 4.30037)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2dxla"]
+radius = 15.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
-position = Vector2(1, 0)
-collision_layer = 23
-collision_mask = 147
+position = Vector2(0, -1)
+collision_layer = 524311
+collision_mask = 524435
 script = ExtResource("1_vvtua")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_ymsl3")
-animation = &"back_attack"
+animation = &"front_gardening"
 offset = Vector2(2, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
@@ -451,28 +514,56 @@ scale = Vector2(1.02026, -0.852962)
 shape = SubResource("CapsuleShape2D_8p7xt")
 
 [node name="HurtBox" parent="." instance=ExtResource("3_5yeq3")]
+position = Vector2(-3, 11)
+scale = Vector2(4.353, 2.71783)
 collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(3, -10)
+position = Vector2(1.2635, -7.17485)
 shape = SubResource("RectangleShape2D_18l0h")
 
 [node name="HitBox" parent="." instance=ExtResource("4_qxdpw")]
+scale = Vector2(3.58888, 3.95315)
 collision_layer = 64
 collision_mask = 64
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(3, -10)
+position = Vector2(0.696596, -2.40315)
 shape = SubResource("RectangleShape2D_gei4b")
 
 [node name="HurtCooldown" type="Timer" parent="."]
 
 [node name="AttackAnim" type="Timer" parent="."]
 
+[node name="WaterAnim" type="Timer" parent="."]
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+modulate = Color(1, 1, 1, 0.807843)
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 37.0
+offset_bottom = 41.0
+scale = Vector2(0.382931, 0.423238)
+value = 100.0
+texture_over = ExtResource("5_grbch")
+texture_progress = ExtResource("6_hovlu")
+
+[node name="HurtArea" type="Area2D" parent="."]
+collision_layer = 524288
+collision_mask = 524288
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea"]
+position = Vector2(2, -9)
+shape = SubResource("CircleShape2D_2dxla")
+
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="HurtCooldown" to="." method="_on_hurt_cooldown_timeout"]
 [connection signal="timeout" from="AttackAnim" to="." method="_on_attack_anim_timeout"]
+[connection signal="timeout" from="WaterAnim" to="." method="_on_water_anim_timeout"]
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]
+[connection signal="body_exited" from="HurtArea" to="." method="_on_hurt_area_body_exited"]
 
 [editable path="HurtBox"]
 [editable path="HitBox"]

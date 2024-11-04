@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbhade3lbprgf"]
+
+[ext_resource type="Texture2D" uid="uid://cc7rvthmfgjng" path="res://Assets/Cute_Fantasy_Free/Outdoor decoration/Chest.png" id="1_7kt8d"]
+[ext_resource type="Script" path="res://Scripts/fertilizator_base.gd" id="2_fru2y"]
+[ext_resource type="PackedScene" uid="uid://ja5fkcv5ppsu" path="res://Interactions/interaction_are.tscn" id="3_5gvwn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_de2d4"]
+size = Vector2(29.4, 30.2222)
+
+[node name="FertilizatorBase" type="Sprite2D"]
+position = Vector2(-3, 3.5)
+scale = Vector2(0.625, 0.5625)
+texture = ExtResource("1_7kt8d")
+script = ExtResource("2_fru2y")
+
+[node name="InteractionAre" parent="." instance=ExtResource("3_5gvwn")]
+action_name = "craft more Fertilizer (100 ingredients)"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionAre"]
+position = Vector2(4.7, 3.55556)
+shape = SubResource("RectangleShape2D_de2d4")
